@@ -1,19 +1,5 @@
 <template>
-  <section class="section">
-    <div class="section__wrapper">
-      <carousel-component @nextSlide="nextVisibleSlide" @prevSlide="prevVisibleSlide">
-        <carousel-slide
-          v-for="(slide, index) in slides"
-          :key="slide"
-          :index="index"
-          :visibleSlide="visibleSlide"
-          :direction="direction"
-          ><img :src="slide" :alt="index"
-        /></carousel-slide>
-      </carousel-component>
-    </div>
-  </section>
-  <section class="section">
+  <section class="section section_with_separator">
     <div class="section__wrapper">
       <h3 class="section__title">Объявления</h3>
       <div class="notice">
@@ -136,53 +122,15 @@
 </template>
 
 <script>
-import CarouselComponent from '@/components/CarouselComponent.vue';
-import CarouselSlide from '@/components/CarouselSlide.vue';
-// import ContactCard from '@/components/ContactCard.vue';
-
-// import contactCards from '../constants/contactCards';
+import contactCards from '../constants/contactCards';
 
 export default {
-  components: { CarouselComponent, CarouselSlide },
-  // name: 'HomeView',
   data() {
     return {
-      slides: [
-        'https://wowslider.com/sliders/demo-44/data1/images/airplane.jpg',
-        'https://wowslider.com/sliders/demo-44/data1/images/cityscape.jpg',
-        'https://wowslider.com/sliders/demo-44/data1/images/fireworks.jpg',
-        'https://wowslider.com/sliders/demo-44/data1/images/quay.jpg',
-      ],
-      visibleSlide: 0,
-      direction: 'left',
+      contactCards,
     };
   },
-  computed: {
-    slidesLength() {
-      return this.slides.length;
-    },
-  },
-  methods: {
-    nextVisibleSlide() {
-      if (this.visibleSlide >= this.slidesLength - 1) {
-        this.visibleSlide = 0;
-      } else {
-        this.visibleSlide += 1;
-      }
-      this.direction = 'left';
-    },
-    prevVisibleSlide() {
-      if (this.visibleSlide <= 0) {
-        this.visibleSlide = this.slidesLength - 1;
-      } else {
-        this.visibleSlide -= 1;
-      }
-      this.direction = 'right';
-    },
-  },
-  // components: {
-  //   ContactCard,
-  // },
+  components: {},
 };
 </script>
 
