@@ -40,7 +40,7 @@ a {
 
 .header {
   width: 100%;
-  padding: 12px 0;
+  padding-top: 12px;
   display: flex;
   flex-direction: column;
   align-items:center;
@@ -49,7 +49,7 @@ a {
 
 .header__wrapper {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1280px;
   display: flex;
   flex-direction: column;
   row-gap: 12px;
@@ -72,13 +72,14 @@ a {
   font-weight: 700;
   margin-bottom: 5px;
   color: var(--text-color-light);
-  font-size: var(--text-size-desktop-h1);
+  font-size: var(--font-size-desktop-h1);
+  line-height: var(--line-height-desktop-h1);
 }
 
 .header__subtitle {
   font-weight: 500;
   color: var(--text-color-light);
-  font-size: var(--text-size-desktop-h1-subtitle);
+  font-size: var(--font-size-desktop-h1-subtitle);
   opacity: 0.8;
 }
 
@@ -89,13 +90,29 @@ a {
 
 /* ================== header end=====================*/
 
-/* ==================button =====================*/
 
+
+/* ================== greeting =====================*/
+
+.greeting {
+  max-height: 400px;
+}
+
+.greeting__image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ================== greeting end=====================*/
+
+/* ==================button =====================*/
 .button {
   border-radius: 25px;
   border: none;
   font-weight: 500;
-  font-size: var(--text-size-desktop-menu);
+  font-size: var(--font-size-desktop-regular);
   white-space: nowrap;
   cursor: pointer;
 }
@@ -125,14 +142,14 @@ a {
 /* ================== button end=====================*/
 
 .content {
-  padding: 12px 70px;
+  padding: 0;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1280px;
   flex: 1;
 }
 
 .content__wrapper {
-  padding: 0 70px;
+  padding: 12px 70px;
   display: grid;
   grid-template-areas: 
     "main aside"
@@ -143,40 +160,18 @@ a {
 
 .main {
   grid-area: main;
-  display: grid;
-  grid-template-areas: 
-    "cards"
-    "notice"
-    "info"
-    "links"
-  ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   row-gap: 12px;
 }
 
 .section {
   width: 100%;
-  /* max-width: 1440px; */
-  /* background-color: red; */
 }
 
 .section:not(:first-of-type) {
   padding-top: 24px;
-}
-
-.section__type_cards {
-  grid-area: cards;
-}
-
-.section__type_notice {
-  grid-area: notice;
-}
-
-.section__type_info {
-  grid-area: info;
-}
-
-.section__type_links {
-  grid-area: links;
 }
 
 .section_with_separator {
@@ -188,19 +183,19 @@ a {
 }
 
 .section__title {
-  margin-bottom: 24px;
+  margin-bottom: 15px;
   text-align: center;
-  font-size: var(--text-size-desktop-h3);
+  font-size: var(--font-size-desktop-h3);
   color: var(--color-primary-dark);
 }
 
 
 /* ================== navigation-menu =====================*/
-.navigation-menu {
+/* .navigation-menu {
   padding: 0 70px;
-}
+} */
 
-.navigation-menu__list {
+/* .navigation-menu__list {
   padding: 0;
   width: 100%;
   margin: 0 auto;
@@ -208,26 +203,154 @@ a {
   flex-direction: row;
   justify-content: center;
   list-style: none;
-}
+} */
 
-.navigation-menu__item {
+/* .navigation-menu__item {
+  position: relative;
   width: 100%;
   border-right: 1px solid var(--color-primary-dark);
-}
+} */
 
-.navigation-menu__item:last-of-type {
+/* .navigation-menu__dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+} */
+
+/* .navigation-menu__item:hover .navigation-menu__dropdown-content {
+  display: block;
+} */
+
+/* .navigation-menu__item:last-of-type {
   border-right: none;
-}
+} */
 
-.navigation-menu__link {
+/* .navigation-menu__link {
   display: block;
   padding: 12px 24px;
   background-color: var(--color-primary-light);
   color: var(--text-color-light);
   text-align: center;
-}
+} */
+
+/* .navigation-menu__link_placed_dropdown-content {
+  border-top: 1px solid var(--color-primary-dark);
+} */
+
+/* .navigation-menu__arrow {
+
+} */
+
+/* .navigation-menu__subnav-content {
+  overflow: hidden;
+} */
 
 /* ================== navigation-menu end =====================*/
+/* ================== navigation-menu v2 =====================*/
+
+.navigation-menu {
+  margin: 0 70px;
+  
+}
+
+.navigation-menu-list {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  list-style: none;
+  background-color: var(--color-primary-dark);
+
+}
+
+/* Навигационные ссылки */
+/* .navigation-menu a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+} */
+
+.navigation-menu__item {
+  position: relative;
+  font-size: var(--font-size-desktop-regular);
+  height: 100%;
+  color: var(--text-color-light);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navigation-menu__item:hover {
+  /* color: var(--color-secondary-regular); */
+  background-color: var(--color-primary-regular);
+}
+
+.navigation-menu__arrow::after {
+  content: '⏷';
+  padding-left: 6px;
+  width: 12px;
+  height: 12px;
+}
+
+/* Подменю навигации */
+.navigation-menu__subnav {
+  display: block;
+  overflow: hidden;
+}
+
+/* Добавить красный цвет фона для навигационных ссылок при наведении */
+.navigation-menu .navigation-menu__item_type_list:hover, .navigation-menu__subnav:hover .navigation-menu__item_type_list {
+  background-color: var(--color-primary-regular);
+}
+
+.navigation-menu .navigation-menu__item_type_list:hover, .navigation-menu__subnav:hover .navigation-menu__arrow::after {
+  content: '⏶';
+}
+
+/* Стиль содержимого subnav - позиционированный абсолютно */
+.subnav-content {
+  display: none;
+  position: absolute;
+  padding: 6px;
+  left: 0;
+  top: 100%;
+  background-color: var(--color-primary-regular);
+  width: 100%;
+  z-index: 1;
+}
+
+/* Стиль ссылок subnav */
+.subnav-content a {
+  float: left;
+  color: white;
+  text-decoration: none;
+}
+
+/* Добавить серый цвет фона при наведении курсора */
+.subnav-content a:hover {
+  /* color: var(--color-secondary-regular); */
+  background-color: var(--color-primary-dark);
+}
+
+/* При наведении указателя мыши на контейнер subnav откройте содержимое subnav */
+.navigation-menu__subnav:hover .subnav-content {
+  display: block;
+}
+
+/* ================== navigation-menu v2 end =====================*/
 
 
 
@@ -244,7 +367,7 @@ a {
 
 .footer__wrapper {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1280px;
 }
 
 .footer__container {
@@ -267,12 +390,19 @@ a {
 
 .cards_placed_section {
   /* padding: 0px 70px; */
+  grid-template-columns: repeat(2, 1fr);
   column-gap: 12px;
   row-gap: 12px;
-  grid-template-columns: repeat(auto-fit, calc(50% - 6px));
 }
 
 .cards_placed_left-bar {
+  column-gap: 12px;
+  row-gap: 12px;
+}
+
+.cards_placed_nav {
+  padding: 8px;
+  grid-template-columns: repeat(auto-fit, calc(50% - 6px));
   column-gap: 12px;
   row-gap: 12px;
 }
@@ -327,7 +457,7 @@ a {
   z-index: 1;
   min-height: 50px;
   margin-bottom: 12px;
-  font-size: var(--text-size-desktop-h3);
+  font-size: var(--font-size-desktop-h3);
   color: var(--text-color-light);
   text-decoration: underline;
 }
@@ -337,7 +467,7 @@ a {
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
-  font-size: var(--text-size-desktop-regular);
+  font-size: var(--font-size-desktop-regular);
   color: var(--text-color-light);
 }
 /* .card__text-block:first-of-type {
@@ -372,7 +502,7 @@ a {
 
 /* .notice__title {
   margin-bottom: 24px;
-  font-size: var(--text-size-desktop-h3);
+  font-size: var(--font-size-desktop-h3);
   color: var(--color-primary-dark);
 } */
 

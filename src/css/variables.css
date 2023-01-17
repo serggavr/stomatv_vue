@@ -17,10 +17,15 @@
   --text-color-light: #fff;
 
    /* text-size */
-  --text-size-desktop-h1: 32px;
-  --text-size-desktop-h1-subtitle: 14px;
-  --text-size-desktop-menu: 16px;
-  --text-size-desktop-h3: 24px;
+  --font-size-desktop-h1: 32px;
+  --line-height-desktop-h1: 22px;
+  --font-size-desktop-h1-subtitle: 14px;
+  --line-height-desktop-h1-subtitle: 16px;
+  --font-size-desktop-menu: 13px;
+  --line-height-desktop-menu: 17px;
+  --font-size-desktop-h3: 24px;
+  --font-size-desktop-regular: 16px;
+  --line-height-desktop-regular: 16px;
 
   /* text-block */
   --text-block-desktop-title: 22px;
