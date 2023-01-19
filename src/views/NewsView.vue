@@ -1,10 +1,11 @@
 <template>
-  <section class="section section_with_separator">
+  <section class="section">
     <div class="section__wrapper">
       <h3 class="section__title">Объявления</h3>
       <div class="notice">
         <ul class="notice__list">
-          <li class="notice-card">
+          <notice-card :markdown="markdownText"></notice-card>
+          <!-- <li class="article-card">
             <div class="text-block">
               <h4 class="text-block__title">Уважаемые пациенты!!!</h4>
               <p class="text-block__paragraph text-block__paragraph_with_indent">
@@ -51,7 +52,7 @@
               </p>
             </div>
           </li>
-          <li class="notice-card">
+          <li class="article-card">
             <div class="text-block">
               <h4 class="text-block__title">Уважаемые пациенты!!!</h4>
               <p class="text-block__paragraph text-block__paragraph_with_indent">
@@ -77,7 +78,7 @@
                 </a>
               </p>
             </div>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -87,7 +88,7 @@
       <h3 class="section__title">Информация</h3>
       <div class="notice">
         <ul class="notice__list">
-          <li class="notice-card">
+          <!-- <li class="article-card">
             <div class="text-block">
               <h4 class="text-block__title">Что такое ГЕПАТИТ С?</h4>
               <div class="text-block__images-container">
@@ -114,7 +115,7 @@
                 </p>
               </div>
             </div>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -122,15 +123,26 @@
 </template>
 
 <script>
-import contactCards from '../constants/contactCards';
+// import contactCards from '../constants/contactCards';
+import NoticeCard from '@/components/NoticeCard.vue';
+
+// const markdownText = `How to start learning web development?
+// - Learn HTML
+// - Learn CSS
+// - Learn JavaScript
+// Use freeCodeCamp to learn all the above and much, much more !
+// `;
+
+import notice from '../constants/notice';
 
 export default {
   data() {
     return {
-      contactCards,
+      // contactCards,
+      markdownText: notice,
     };
   },
-  components: {},
+  components: { NoticeCard },
 };
 </script>
 

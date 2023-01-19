@@ -15,10 +15,16 @@
   </section>
   <section class="section">
     <div class="section__wrapper">
-      <h3 class="section__title">Объявления</h3>
+      <h3 class="section__title">Последние новости</h3>
       <div class="notice">
         <ul class="notice__list">
-          <li class="notice-card">
+          <article-card
+            v-for="(article, index) in articles"
+            :key="article.id"
+            :article="article"
+            :articleIndex="index"
+          ></article-card>
+          <!-- <li class="article-card">
             <div class="text-block">
               <h4 class="text-block__title">Уважаемые пациенты!!!</h4>
               <p class="text-block__paragraph text-block__paragraph_with_indent">
@@ -65,7 +71,7 @@
               </p>
             </div>
           </li>
-          <li class="notice-card">
+          <li class="article-card">
             <div class="text-block">
               <h4 class="text-block__title">Уважаемые пациенты!!!</h4>
               <p class="text-block__paragraph text-block__paragraph_with_indent">
@@ -91,7 +97,7 @@
                 </a>
               </p>
             </div>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -101,7 +107,8 @@
       <h3 class="section__title">Информация</h3>
       <div class="notice">
         <ul class="notice__list">
-          <li class="notice-card">
+          <!-- <article-card></article-card> -->
+          <!-- <li class="article-card">
             <div class="text-block">
               <h4 class="text-block__title">Что такое ГЕПАТИТ С?</h4>
               <div class="text-block__images-container">
@@ -128,7 +135,7 @@
                 </p>
               </div>
             </div>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -138,12 +145,14 @@
 <script>
 import CarouselComponent from '@/components/CarouselComponent.vue';
 import CarouselSlide from '@/components/CarouselSlide.vue';
+import ArticleCard from '@/components/ArticleCard.vue';
+
 // import ContactCard from '@/components/ContactCard.vue';
 
-// import contactCards from '../constants/contactCards';
+import articles from '../constants/articles';
 
 export default {
-  components: { CarouselComponent, CarouselSlide },
+  components: { CarouselComponent, CarouselSlide, ArticleCard },
   // name: 'HomeView',
   data() {
     return {
@@ -155,6 +164,7 @@ export default {
       ],
       visibleSlide: 0,
       direction: 'left',
+      articles,
     };
   },
   computed: {
